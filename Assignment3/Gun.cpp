@@ -1,0 +1,17 @@
+/*
+ * Ваганов Владимир Алексеевич
+ * st140060@student.spbu.ru
+ * Assignment3
+ */
+
+
+#include "Gun.h"
+
+Gun::Gun(const std::string& model, int ammo)
+    : model_(model), ammo_(ammo) {}
+
+Gun::~Gun() {}
+
+const std::string& Gun::getModel() const { return model_; }
+int Gun::getAmmo() const { return ammo_; }
+void Gun::setAmmo(int ammo) { ammo_ = ammo; }
