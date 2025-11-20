@@ -82,9 +82,7 @@ bool Transformer::fire()
     return false;
 }
 
-std:
-ostream& operator<<(std::ostream& os, const Transformer& t)
-{
+std::ostream& operator<<(std::ostream& os, const Transformer& t) {
     t.print(os);
     return os;
 }

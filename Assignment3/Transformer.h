@@ -42,9 +42,16 @@ public:
     virtual bool fire();
     virtual bool transform() = 0;
     virtual void specialAbility() = 0;
-    virtual void print(std:ostream& os) const = 0;
+    virtual void print(std::ostream& os) const = 0;
 
     friend std::ostream& operator<<(std::ostream& os, const Transformer& t);
+protected:
+    std::string name_;
+    int level_;
+    int strength_;
+    int fuel_;
+    Gun gun_;
+    Alliance* ally_;
 };
 
 std::ostream& operator<<(std::ostream& os, const Transformer& t);

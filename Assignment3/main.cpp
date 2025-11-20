@@ -25,7 +25,7 @@ int main()
     std::cout << a1 << std::endl << std::endl;
 
     // 2. Virtual calls via base pointer
-    ctd::cout << "=== Virtual calls via base pointer ===" << std::endl;
+    std::cout << "=== Virtual calls via base pointer ===" << std::endl;
     Alliance autobots("Autobots");
     Alliance decepticons("Decepticons");
     Transformer* t1 = new Autobot("Beta", 6, 85, 45, 25, "Beta Gun", &autobots, false);
@@ -44,8 +44,7 @@ int main()
 
     // 3. Vector of 9 objects
     std::cout << "=== Vector of 9 objects ===" << std::endl;
-std:
-    vector<Transformer*> bots;
+    std::vector<Transformer*> bots;
     bots.push_back(new Autobot("A1", 3, 60, 30, 10, "Gun1", &autobots, true));
     bots.push_back(new Autobot("A2", 4, 65, 35, 12, "Gun2", &autobots, false));
     bots.push_back(new Autobot("A3", 5, 70, 40, 15, "Gun3", &autobots, true));

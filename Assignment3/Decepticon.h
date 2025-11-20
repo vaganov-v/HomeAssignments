@@ -32,7 +32,7 @@ public:
     bool hasDarkSpark() const;
     void setDarkSpark(bool has);
 
-    void print(std::ostream& os) onst override;
+    void print(std::ostream& os) const override;
 
 private:
     bool hasDarkSpark_;
