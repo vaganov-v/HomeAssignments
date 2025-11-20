@@ -11,8 +11,7 @@
 #include <iostream>
 #include <vector>
 
-int main()
-{
+int main() {
     // 1. Explicit calls
     std::cout << "=== Explicit <calls ===" << std::endl;
     Autobot a1("Alpha", 5, 80, 40, 20, "Alpha Blaster", new Alliance("Autobots"), true);
@@ -44,8 +43,7 @@ int main()
 
     // 3. Vector of 9 objects
     std::cout << "=== Vector of 9 objects ===" << std::endl;
-std:
-    vector<Transformer*> bots;
+    std:vector<Transformer*> bots;
     bots.push_back(new Autobot("A1", 3, 60, 30, 10, "Gun1", &autobots, true));
     bots.push_back(new Autobot("A2", 4, 65, 35, 12, "Gun2", &autobots, false));
     bots.push_back(new Autobot("A3", 5, 70, 40, 15, "Gun3", &autobots, true));
@@ -56,8 +54,7 @@ std:
     bots.push_back(new Pretender("P2", 3, 55, 30, 8, "Shell2", &autobots, false));
     bots.push_back(new Pretender("P3", 4, 60, 35, 10, "Shell3", &decepticons, true));
 
-    for (auto* bot : bots)
-    {
+    for (auto* bot : bots) {
         bot->transform();
         bot->specialAbility();
         bot->move();
@@ -68,8 +65,7 @@ std:
     delete t1;
     delete t2;
     delete t3;
-    for (auto* bot : bots)
-    {
+    for (auto* bot : bots) {
         delete bot;
     }
 

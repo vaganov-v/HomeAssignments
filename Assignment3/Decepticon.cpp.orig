@@ -21,39 +21,28 @@ Decepticon::Decepticon(
     : Transformer(name, level, strength, fuel, ammo, gunModel, ally),
       hasDarkSpark_(hasDarkSpark) {}
 
-bool Decepticon::transform()
-{
+bool Decepticon::transform() {
     std::cout << "[Decepticon::transform] called" << std::endl;
     return true;
 }
 
-void Decepticon::specialAbility()
-{
+void Decepticon::specialAbility() {
     std::cout << "[Decepticon::specialAbility] called" << std::endl;
 }
 
-bool Decepticon::activateStealth()
-{
+bool Decepticon::activateStealth() {
     std::cout << "[Decepticon::activateStealth] called" << std::endl;
     return true;
 }
 
-void Decepticon::corruptCore()
-{
+void Decepticon::corruptCore() {
     std::cout << "[Decepticon::corruptCore] called" << std::endl;
 }
 
-bool Decepticon::hasDarkSpark() const
-{
-    return hasDarkSpark_;
-}
-void Decepticon::setDarkSpark(bool has)
-{
-    hasDarkSpark_ = has;
-}
+bool Decepticon::hasDarkSpark() const { return hasDarkSpark_; }
+void Decepticon::setDarkSpark(bool has) { hasDarkSpark_ = has; }
 
-void Decepticon::print(std::ostream& os) const
-{
+void Decepticon::print(std::ostream& os) const {
     os << "[Decepticon] " << getName()
        << ", Level: " << getLevel()
        << ", Fuel: " << getFuel()

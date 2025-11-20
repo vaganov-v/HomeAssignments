@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef AUTOBOT_H
@@ -9,8 +9,10 @@
 
 #include "Transformer.h"
 
-class Autobot : public Transformer {
+class Autobot : public Transformer
+{
 public:
+    Autobot();
     Autobot(
         const std::string& name,
         int level,
@@ -23,10 +25,14 @@ public:
     );
 
     bool transform() override;
+    void specialAbility() override;
     bool callForBackup();
+    void recharge();
 
     bool hasMatrixOfLeadership() const;
     void setMatrixOfLeadership(bool has);
+
+    void print(std::ostream& os) const override;
 
 private:
     bool hasMatrixOfLeadership_;

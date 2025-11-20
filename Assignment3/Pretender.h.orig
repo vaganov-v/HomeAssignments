@@ -9,8 +9,7 @@
 
 #include "Transformer.h"
 
-class Pretender : public Transformer
-{
+class Pretender : public Transformer {
 public:
     Pretender();
     Pretender(

@@ -21,39 +21,28 @@ Autobot::Autobot(
     : Transformer(name, level, strength, fuel, ammo, gunModel, ally),
       hasMatrixOfLeadership_(hasMatrixOfLeadership) {}
 
-bool Autobot::transform()
-{
+bool Autobot::transform() {
     std::cout << "[Autobot::transform] called" << std::endl;
     return true;
 }
 
-void Autobot::specialAbility()
-{
+void Autobot::specialAbility() {
     std::cout << "[Autobot::specialAbility] called" << std::endl;
 }
 
-bool Autobot::callForBackup()
-{
+bool Autobot::callForBackup() {
     std::cout << "[Autobot::callForBackup] called" << std::endl;
     return true;
 }
 
-void Autobot::recharge()
-{
+void Autobot::recharge() {
     std::cout << "[Autobot::recharge] called" << std::endl;
 }
 
-bool Autobot::hasMatrixOfLeadership() const
-{
-    return hasMatrixOfLeadership_;
-}
-void Autobot::setMatrixOfLeadership(bool has)
-{
-    hasMatrixOfLeadership_ = has;
-}
+bool Autobot::hasMatrixOfLeadership() const { return hasMatrixOfLeadership_; }
+void Autobot::setMatrixOfLeadership(bool has) { hasMatrixOfLeadership_ = has; }
 
-void Autobot::print(std::ostream& os) const
-{
+void Autobot::print(std::ostream& os) const {
     os << "[Autobot]" << getName()
        << ", Level: " << getLevel()
        << ", Fuel: " << getFuel()

@@ -21,39 +21,28 @@ Pretender::Pretender(
     : Transformer(name, level, strength, fuel, ammo, gunModel, ally),
       isHumanShell_(isHumanShell) {}
 
-bool Pretender::transform()
-{
+bool Pretender::transform() {
     std::cout << "[Pretender::transform] called" << std::endl;
     return true;
 }
 
-void Pretender::specialAbility()
-{
+void Pretender::specialAbility() {
     std::cout << "[Pretender::specialAbility] called" << std::endl;
 }
 
-bool Pretender::detachShell()
-{
+bool Pretender::detachShell() {
     std::cout << "[Pretender::detachShell] called" << std::endl;
     return true;
 }
 
-void Pretender::mimicAlliance()
-{
+void Pretender::mimicAlliance() {
     std::cout << "[Pretender::mimicAlliance] calle " << std::endl;
 }
 
-bool Pretender::isHumanShell() const
-{
-    return isHumanShell_;
-}
-void Pretender::setHumanShell(bool is)
-{
-    isHumanShell_ = is;
-}
+bool Pretender::isHumanShell() const { return isHumanShell_; }
+void Pretender::setHumanShell(bool is) { isHumanShell_ = is; }
 
-void Pretender::print(std::ostream& os) const
-{
+void Pretender::print(std::ostream& os) const {
     os << "[Pretender] " << getName()
        << ", Level_ " << getLevel()
        << ", Fuel: " << getFuel()
