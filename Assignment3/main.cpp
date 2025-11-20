@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #include "Autobot.h"
@@ -9,26 +9,68 @@
 #include "Pretender.h"
 #include "Alliance.h"
 #include <iostream>
+#include <vector>
 
-int main() {
+int main()
+{
+    // 1. Explicit calls
+    std::cout << "=== Explicit <calls ===" << std::endl;
+    Autobot a1("Alpha", 5, 80, 40, 20, "Alpha Blaster", new Alliance("Autobots"), true);
+    a1.transform();
+    a1.callForBackup();
+    a1.recharge();
+    a1.specialAbility();
+    a1.move();
+    a1.fire();
+    std::cout << a1 << std::endl << std::endl;
+
+    // 2. Virtual calls via base pointer
+    std::cout << "=== Virtual calls via base pointer ===" << std::endl;
     Alliance autobots("Autobots");
     Alliance decepticons("Decepticons");
+    Transformer* t1 = new Autobot("Beta", 6, 85, 45, 25, "Beta Gun", &autobots, false);
+    Transformer* t2 = new Decepticon("Sigma", 7, 90, 50, 30, "Sigma Cannon", &decepticons, true);
+    Transformer* t3 = new Pretender("Zeta", 4, 70, 35, 15, "Zeta Launcher", &autobots, true);
 
-    Autobot optimus("Optimus Prime", 10, 100, 50, 20, "Ion Blaster", &autobots, true);
-    Decepticon megatron("Megatron", 10, 110, 40, 25, "Fusion Cannon", &decepticons, true);
-    Pretender ninja("Ninja", 8, 80, 30, 15, "Shuriken Launcher", &autobots, true);
+    t1->transform();
+    t2->transform();
+    t3->transform();
+    t1->specialAbility();
+    t2->specialAbility();
+    t3->specialAbility();
+    std::cout << *t1 << std::endl;
+    std::cout << *t2 << std::endl;
+    std::cout << *t3 << std::endl << std::endl;
 
-    optimus.transform();
-    megatron.transform();
-    ninja.transform();
+    // 3. Vector of 9 objects
+    std::cout << "=== Vector of 9 objects ===" << std::endl;
+    std::vector<Transformer*> bots;
+    bots.push_back(new Autobot("A1", 3, 60, 30, 10, "Gun1", &autobots, true));
+    bots.push_back(new Autobot("A2", 4, 65, 35, 12, "Gun2", &autobots, false));
+    bots.push_back(new Autobot("A3", 5, 70, 40, 15, "Gun3", &autobots, true));
+    bots.push_back(new Decepticon("D1", 6, 75, 45, 20, "Cannon1", &decepticons, false));
+    bots.push_back(new Decepticon("D2", 7, 80, 50, 25, "Cannon2", &decepticons, true));
+    bots.push_back(new Decepticon("D3", 8, 85, 55, 30, "Cannon3", &decepticons, false));
+    bots.push_back(new Pretender("P1", 2, 50, 25, 5, "Shell1", &autobots, true));
+    bots.push_back(new Pretender("P2", 3, 55, 30, 8, "Shell2", &autobots, false));
+    bots.push_back(new Pretender("P3", 4, 60, 35, 10, "Shell3", &decepticons, true));
 
-    optimus.callForBackup();
-    megatron.activateStealth();
-    ninja.detachShell();
+    for (auto* bot : bots)
+    {
+        bot->transform();
+        bot->specialAbility();
+        bot->move();
+        std::cout << *bot << std::endl;
+    }
 
-    std::cout << "Optimus fuel: " << optimus.getFuel() << std::endl;
-    optimus.move();
-    std::cout << "After move: " << optimus.getFuel() << std::endl;
+    // Releasing the memory
+    delete t1;
+    delete t2;
+    delete t3;
+    for (auto* bot : bots)
+    {
+        delete bot;
+    }
 
     return 0;
 }

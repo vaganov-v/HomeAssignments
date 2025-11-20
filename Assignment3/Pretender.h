@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef PRETENDER_H
@@ -9,8 +9,10 @@
 
 #include "Transformer.h"
 
-class Pretender : public Transformer {
+class Pretender : public Transformer
+{
 public:
+    Pretender();
     Pretender(
         const std::string& name,
         int level,
@@ -23,10 +25,14 @@ public:
     );
 
     bool transform() override;
+    void specialAbility() override;
     bool detachShell();
+    void mimicAlliance();
 
     bool isHumanShell() const;
     void setHumanShell(bool is);
+
+    void print(std::ostream& os) const override;
 
 private:
     bool isHumanShell_;

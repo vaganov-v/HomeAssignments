@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef GUN_H
@@ -9,8 +9,9 @@
 
 #include <string>
 
-class Gun {
+class Gun{
 public:
+    Gun();
     Gun(const std::string& model, int ammo);
     ~Gun();
 

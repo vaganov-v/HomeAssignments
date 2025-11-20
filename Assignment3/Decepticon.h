@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef DECEPTICON_H
@@ -9,8 +9,10 @@
 
 #include "Transformer.h"
 
-class Decepticon : public Transformer {
+class Decepticon : public Transformer
+{
 public:
+    Decepticon();
     Decepticon(
         const std::string& name,
         int level,
@@ -23,10 +25,14 @@ public:
     );
 
     bool transform() override;
+    void specialAbility() override;
     bool activateStealth();
+    void corruptCore();
 
     bool hasDarkSpark() const;
     void setDarkSpark(bool has);
+
+    void print(std::ostream& os) const override;
 
 private:
     bool hasDarkSpark_;

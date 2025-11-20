@@ -1,4 +1,4 @@
-# Assignment 3
+# Assignment 4
 
 ## Author
 Ваганов Владимир Алексеевич, группа 25.Б81-мм
@@ -7,10 +7,12 @@
 st140060@student.spbu.ru
 
 ## Description
-Object-oriented hierarchy of Transformers.
-Base class: Transformer (abstract)
-Derived classes: Autobot, Decepticon, Pretender
-Features: composition (Gun), association (Alliance*), inheritance, encapsulation.
+Assignment 4: Enhanced Transformers hierarchy with polymorphism.
+ Virtual methods with console output
+ operator<< via virtual print()
+ Multiple constructors
+ Testing via explicit calls, base pointers, and vector of 9 objects
+ Formatted with astyle -A1 -s4
 
 ## Build
 make

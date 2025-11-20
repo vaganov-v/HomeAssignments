@@ -1,17 +1,28 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment3
+ * Assignment 4
  */
 
 
 #include "Gun.h"
+
+Gun::Gun() : model_("Default Gun"), ammo_(0) {}
 
 Gun::Gun(const std::string& model, int ammo)
     : model_(model), ammo_(ammo) {}
 
 Gun::~Gun() {}
 
-const std::string& Gun::getModel() const { return model_; }
-int Gun::getAmmo() const { return ammo_; }
-void Gun::setAmmo(int ammo) { ammo_ = ammo; }
+const std::string& Gun::getModel() const
+{
+    return model_;
+}
+int Gun::getAmmo() const
+{
+    return ammo_;
+}
+void Gun::setAmmo(int ammo)
+{
+    ammo_ = ammo;
+}
