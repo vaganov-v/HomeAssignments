@@ -11,6 +11,7 @@
 
 class Alliance {
 public:
+    Alliance();
     explicit Alliance(const std::string& name);
     const std::string& getName() const;
 

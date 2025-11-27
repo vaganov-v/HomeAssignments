@@ -13,6 +13,7 @@
 
 class Transformer {
 public:
+    Transformer();
     Transformer(
         const std::string& name,
         int level,
@@ -29,6 +30,7 @@ public:
     int getStrength() const;
     int getFuel() const;
     Gun& getGun();
+    const Gun& getGun() const;
     Alliance* getAlliance() const;
 
     void setLevel(int level);
@@ -38,6 +40,7 @@ public:
     virtual bool move();
     virtual bool fire();
     virtual bool transform() = 0;
+    virtual bool specialAbility() = 0;
 
 protected:
     std::string name_;

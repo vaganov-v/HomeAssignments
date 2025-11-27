@@ -8,12 +8,15 @@ st140060@student.spbu.ru
 
 ## Description
 Object-oriented hierarchy of Transformers.
-Base class: Transformer (abstract)
-Derived classes: Autobot, Decepticon, Pretender
-Features: composition (Gun), association (Alliance*), inheritance, encapsulation.
+- Base class: Transformer (abstract)
+- Derived: Autobot, Decepticon, Pretender
+- Composition: Gun
+- Association: Alliance*
+- All methods tested with Google Test
 
 ## Build
 make
 
-## Run
-./transformers
+## Test
+make test
+./test-transformers

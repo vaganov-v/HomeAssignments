@@ -1,18 +1,38 @@
+PROJECT = transformers
+LIBPROJECT = $(PROJECT).a
+TESTPROJECT = test-$(PROJECT)
+
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17
-SRC = main.cpp Transformer.cpp Gun.cpp Alliance.cpp Autobot.cpp Decepticon.cpp Pretender.cpp
-OBJ = $(SRC:.cpp=.o)
-TARGET = transformers
+A = ar
+AFLAGS = rsv
+CXXFLAGS = -Isrc -std=c++17 -Wall -Wextra -Werror -Wpedantic -g -fPIC
 
-.PHONY: all clean
+DEPS = $(wildcard src/*.h)
+OBJ = src/Transformer.o src/Gun.o src/Alliance.o \
+      src/Autobot.o src/Decepticon.o src/Pretender.o
 
-all: $(TARGET)
+TEST_OBJ = tests/TransformerTests.o
 
-$(TARGET): $(OBJ)
-	$(CXX) -o $@ $^
+LDXXFLAGS = $(CXXFLAGS) -L. -l:$(LIBPROJECT)
+LDGTESTFLAGS = $(LDXXFLAGS) -lgtest -lgtest_main -lpthread
 
-%.o: %.cpp
+.PHONY: all test clean cleanall
+
+%.o: %.cpp $(DEPS)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
+$(LIBPROJECT): $(OBJ)
+	$(A) $(AFLAGS) $@ $^
+
+$(TESTPROJECT): $(LIBPROJECT) $(TEST_OBJ)
+	$(CXX) -o $@ $(TEST_OBJ) $(LDGTESTFLAGS)
+
+test: $(TESTPROJECT)
+
+all: $(LIBPROJECT)
+
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f src/*.o tests/*.o
+
+cleanall: clean
+	rm -f $(LIBPROJECT) $(TESTPROJECT)

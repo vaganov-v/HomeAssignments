@@ -11,6 +11,7 @@
 
 class Decepticon : public Transformer {
 public:
+    Decepticon();
     Decepticon(
         const std::string& name,
         int level,
@@ -23,7 +24,9 @@ public:
     );
 
     bool transform() override;
+    bool specialAbility() override;
     bool activateStealth();
+    void corruptCore();
 
     bool hasDarkSpark() const;
     void setDarkSpark(bool has);

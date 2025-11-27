@@ -4,14 +4,15 @@
  * Assignment 3
  */
 
-#ifndef PRETENDER_H
-#define PRETENDER_H
+#ifndef AUTOBOT_H
+#define AUTOBOT_H
 
 #include "Transformer.h"
 
-class Pretender : public Transformer {
+class Autobot : public Transformer {
 public:
-    Pretender(
+    Autobot();
+    Autobot(
         const std::string& name,
         int level,
         int strength,
@@ -19,17 +20,19 @@ public:
         int ammo,
         const std::string& gunModel,
         Alliance* ally,
-        bool isHumanShell
+        bool hasMatrix
     );
 
     bool transform() override;
-    bool detachShell();
+    bool specialAbility() override;
+    bool callForBackup();
+    void recharge();
 
-    bool isHumanShell() const;
-    void setHumanShell(bool is);
+    bool hasMatrixOfLeadership() const;
+    void setMatrixOfLeadership(bool has);
 
 private:
-    bool isHumanShell_;
+    bool hasMatrixOfLeadership_;
 };
 
 #endif

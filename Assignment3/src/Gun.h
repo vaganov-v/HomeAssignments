@@ -11,6 +11,7 @@
 
 class Gun {
 public:
+    Gun();
     Gun(const std::string& model, int ammo);
     ~Gun();
 

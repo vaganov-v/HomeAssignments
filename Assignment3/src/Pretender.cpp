@@ -5,27 +5,25 @@
  */
 
 #include "Pretender.h"
-#include <iostream>
+
+Pretender::Pretender()
+    : Transformer("Pretender", 1, 10, 10, 5, "Shell", nullptr),
+      isHumanShell_(true) {}
 
 Pretender::Pretender(
     const std::string& name,
     int level, int strength, int fuel, int ammo,
     const std::string& gunModel,
     Alliance* ally,
-    bool isHumanShell
+    bool isHuman
 )
     : Transformer(name, level, strength, fuel, ammo, gunModel, ally),
-      isHumanShell_(isHumanShell) {}
+      isHumanShell_(isHuman) {}
 
-bool Pretender::transform() {
-    std::cout << getName() << " transforms and reveals true form!" << std::endl;
-    return true;
-}
-
-bool Pretender::detachShell() {
-    std::cout << getName() << " detaches pretender shell!" << std::endl;
-    return true;
-}
+bool Pretender::transform() { return true; }
+bool Pretender::specialAbility() { return true; }
+bool Pretender::detachShell() { return true; }
+void Pretender::mimicAlliance() {}
 
 bool Pretender::isHumanShell() const { return isHumanShell_; }
 void Pretender::setHumanShell(bool is) { isHumanShell_ = is; }
