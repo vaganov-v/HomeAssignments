@@ -1,15 +1,17 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef DECEPTICON_H
 #define DECEPTICON_H
 
 #include "Transformer.h"
+#include <iostream>
 
-class Decepticon : public Transformer {
+class Decepticon : public Transformer
+{
 public:
     Decepticon();
     Decepticon(
@@ -22,7 +24,6 @@ public:
         Alliance* ally,
         bool hasDarkSpark
     );
-
     bool transform() override;
     bool specialAbility() override;
     bool activateStealth();
@@ -30,6 +31,8 @@ public:
 
     bool hasDarkSpark() const;
     void setDarkSpark(bool has);
+
+    void print(std::ostream& os) const override;
 
 private:
     bool hasDarkSpark_;

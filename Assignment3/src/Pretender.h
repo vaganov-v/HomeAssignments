@@ -1,15 +1,17 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef PRETENDER_H
 #define PRETENDER_H
 
 #include "Transformer.h"
+#include <iostream>
 
-class Pretender : public Transformer {
+class Pretender : public Transformer
+{
 public:
     Pretender();
     Pretender(
@@ -30,6 +32,8 @@ public:
 
     bool isHumanShell() const;
     void setHumanShell(bool is);
+
+    void print(std::ostream& os) const override;
 
 private:
     bool isHumanShell_;

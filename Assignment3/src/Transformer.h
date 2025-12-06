@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef TRANSFORMER_H
@@ -11,7 +11,8 @@
 #include "Alliance.h"
 #include <string>
 
-class Transformer {
+class Transformer
+{
 public:
     Transformer();
     Transformer(
@@ -42,6 +43,10 @@ public:
     virtual bool transform() = 0;
     virtual bool specialAbility() = 0;
 
+    // operator<< and virtual print
+    virtual void print(std::ostream& os) const = 0;
+    friend std::ostream& operator<<(std::ostream& os, const Transformer& t);
+
 protected:
     std::string name_;
     int level_;
@@ -50,5 +55,7 @@ protected:
     Gun gun_;
     Alliance* ally_;
 };
+
+std::ostream& operator<<(std::ostream&os, const Transformer& t);
 
 #endif

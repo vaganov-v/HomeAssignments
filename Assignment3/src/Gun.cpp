@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #include "Gun.h"
@@ -13,6 +13,15 @@ Gun::Gun(const std::string& model, int ammo)
 
 Gun::~Gun() {}
 
-const std::string& Gun::getModel() const { return model_; }
-int Gun::getAmmo() const { return ammo_; }
-void Gun::setAmmo(int ammo) { ammo_ = ammo; }
+const std::string& Gun::getModel() const
+{
+    return model_;
+}
+int Gun::getAmmo() const
+{
+    return ammo_;
+}
+void Gun::setAmmo(int ammo)
+{
+    ammo_ = ammo;
+}

@@ -1,10 +1,11 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #include "Autobot.h"
+#include <iostream>
 
 Autobot::Autobot()
     : Transformer("Autobot", 1, 10, 10, 5, "Standard", nullptr),
@@ -20,10 +21,42 @@ Autobot::Autobot(
     : Transformer(name, level, strength, fuel, ammo, gunModel, ally),
       hasMatrixOfLeadership_(hasMatrix) {}
 
-bool Autobot::transform() { return true; }
-bool Autobot::specialAbility() { return true; }
-bool Autobot::callForBackup() { return true; }
-void Autobot::recharge() {}
+bool Autobot::transform()
+{
+    std::cout << "[Autobot::transform] called" << std::endl;
+    return true;
+}
 
-bool Autobot::hasMatrixOfLeadership() const { return hasMatrixOfLeadership_; }
-void Autobot::setMatrixOfLeadership(bool has) { hasMatrixOfLeadership_ = has; }
+bool Autobot::specialAbility()
+{
+    std::cout << "[Autobot::specialAbility] called" << std::endl;
+    return true;
+}
+
+bool Autobot::callForBackup()
+{
+    std::cout << "[Autobot::callForBackup] called" << std::endl;
+    return true;
+}
+
+void Autobot::recharge()
+{
+    std::cout << "[Autobot::recharge] called" << std::endl;
+}
+
+bool Autobot::hasMatrixOfLeadership() const
+{
+    return hasMatrixOfLeadership_;
+}
+void Autobot::setMatrixOfLeadership(bool has)
+{
+    hasMatrixOfLeadership_ = has;
+}
+
+void Autobot::print(std::ostream& os) const
+{
+    os << "[Autobot] " << name_
+       << ", Level: " << level_
+       << ", Fuel: " << fuel_
+       << ", Has Matrix: " << (hasMatrixOfLeadership_ ? "yes" : "no");
+}

@@ -1,7 +1,7 @@
 /*
  * Ваганов Владимир Алексеевич
  * st140060@student.spbu.ru
- * Assignment 3
+ * Assignment 4
  */
 
 #ifndef ALLIANCE_H
@@ -9,7 +9,8 @@
 
 #include <string>
 
-class Alliance {
+class Alliance
+{
 public:
     Alliance();
     explicit Alliance(const std::string& name);
