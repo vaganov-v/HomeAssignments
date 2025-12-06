@@ -1,4 +1,4 @@
-# Assignment 4
+# Assignment 3
 
 ## Author
 Ваганов Владимир Алексеевич, группа 25.Б81-мм
@@ -7,15 +7,16 @@
 st140060@student.spbu.ru
 
 ## Description
-Assignment 4: Enhanced Transformers hierarchy with polymorphism.
- Virtual methods with console output
- operator<< via virtual print()
- Multiple constructors
- Testing via explicit calls, base pointers, and vector of 9 objects
- Formatted with astyle -A1 -s4
+Object-oriented hierarchy of Transformers.
+- Base class: Transformer (abstract)
+- Derived: Autobot, Decepticon, Pretender
+- Composition: Gun
+- Association: Alliance*
+- All methods tested with Google Test
 
 ## Build
 make
 
-## Run
-./transformers
+## Test
+make test
+./test-transformers
